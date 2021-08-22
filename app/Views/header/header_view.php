@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="<?=base_url()?>/assets/bootstrap/css/bootstrap-reboot.min.css">
     <link rel="stylesheet" href="<?=base_url()?>/assets/dropdown/css/style.css">
     <link rel="stylesheet" href="<?=base_url()?>/assets/socicon/css/styles.css">
-    <link rel="stylesheet" href="<?=base_url()?>/assets/theme/css/style.css">
+    <link rel="stylesheet" href="<?=base_url()?>/assets/theme/css/style.css?v=1.1">
     <link rel="preload" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap">
@@ -58,10 +58,17 @@
                     <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
                         <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="<?=base_url()?>">من نحن</a></li>
                         <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="<?=base_url()?>">الخدمات</a></li>
-                        <li class="nav-item"><a class="nav-link link text-black display-4" href="#">تواصل معنا</a>
-                        </li>
+                        <li class="nav-item"><a class="nav-link link text-black display-4" href="#">تواصل معنا</a></li>
+                        <?php 
+                            if(session()->get('user_id') && session()->get('user_id')){
+                        ?>                
+                        <li class="nav-item"><a class="nav-link link text-primary display-4" href="<?=base_url()?>/user/projects">مشاريعي</a></li>
+                        <li class="nav-item"><a class="nav-link link text-danger display-4" href="<?=base_url()?>/auth/logout">تسجيل خروج</a></li>
+                        <?php } else { ?>
+                        <li class="nav-item"><a class="nav-link link text-primary display-4" href="<?=base_url()?>/auth/login">تسجيل الدخول</a></li>
+                        <?php } ?>
                     </ul>
-                    <div class="icons-menu">
+                    <!-- <div class="icons-menu">
                         <a class="iconfont-wrapper" href="#" target="_blank">
                             <span class="p-2 mbr-iconfont socicon-facebook socicon"></span>
                         </a>
@@ -74,14 +81,8 @@
                         <a class="iconfont-wrapper" href="#" target="_blank">
                             <span class="p-2 mbr-iconfont socicon-linkedin socicon"></span>
                         </a>
-                    </div>
-                    <?php 
-                        if(session()->get('user_id') && session()->get('user_id')){
-                    ?>                
-                    <div class="navbar-buttons mbr-section-btn"><a class="nav-link link text-danger display-4" href="<?=base_url()?>/auth/logout">تسجيل خروج</a></div>
-                    <?php } else { ?>
-                    <div class="navbar-buttons mbr-section-btn"><a class="nav-link link text-primary display-4" href="<?=base_url()?>/auth/login">تسجيل الدخول</a></div>
-                    <?php } ?>
+                    </div> -->
+                   
                     <div class="navbar-buttons mbr-section-btn"><a class="btn btn-primary display-4" href="<?=base_url()?>/user/add_project">انشر مشروعك الن</a></div>
                 </div>
             </div>

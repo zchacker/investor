@@ -6,7 +6,7 @@
 
                 <p class="mbr-text mbr-fonts-style mbr-white display-7">هي منصة تتيح لك عرض مشاريعك على المستثمرين للحصول على شريك جديد</p>
                 <div class="mbr-section-btn mt-3">
-                    <a class="btn btn-warning-outline display-7" href="#">تعرف المزيد</a>
+                    <a class="btn btn-warning-outline display-7" href="#contacts2-4">مستثمر؟ تصفح الان</a>
                     <a class="btn btn-warning display-7" href="<?=base_url()?>/user/add_project">أضف مشروعك الان!</a>
                 </div>
             </div>
@@ -69,42 +69,41 @@
     <div class="container">
         <div class="mbr-section-head">
             <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
-                <strong>المشاريع</strong>
+                <strong>هل أنت مستثمر؟ تصفح هذه المشاريع</strong>
             </h3>
-        </div>
+        </div>        
         <div class="row justify-content-center mt-4">
-            <div class="card col-12 col-md-12">
-                <div class="card-wrapper">
-                    <!-- <div class="image-wrapper">
-                        <span class="mbr-iconfont mobi-mbri-phone mobi-mbri"></span>
-                    </div> -->
-                    <div class="text-wrapper">
-                        <h6 class="card-title mbr-fonts-style mb-1 display-5">
-                            <strong>عنوان المشروع</strong>
-                        </h6>
-                        <p class="mbr-text mbr-fonts-style display-7">
-                            <!-- <a href="tel:+12345678910" class="text-primary">0 (800) 123 45 67</a> -->
-                            وصف للمشروع لا يزيد عن سطرين
-                        </p>
+        <?php 
+
+            function preview($text)
+            {
+                return $out = strlen($text) > 50 ? substr($text,0,310)."..." : $text;         
+            }
+
+
+            foreach($projects as $project)
+            {
+                
+                $url = base_url().'/home/project/'.$project['id'];
+
+                print("                
+                    <div class='card col-12 col-md-12'>
+                        <div class='card-wrapper'>                       
+                            <div class='text-wrapper'>
+                                <h6 class='card-title mbr-fonts-style mb-1 display-5'>  
+                                    <a href='$url'>                              
+                                        <strong>$project[title]</strong>
+                                    </a>
+                                </h6>
+                                <p class='mbr-text mbr-fonts-style display-7'>                                
+                                    ".preview($project['description'])."
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="card col-12 col-md-12">
-                <div class="card-wrapper">
-                    <!-- <div class="image-wrapper">
-                        <span class="mbr-iconfont mobi-mbri-letter mobi-mbri"></span>
-                    </div> -->
-                    <div class="text-wrapper">
-                        <h6 class="card-title mbr-fonts-style mb-1 display-5">
-                            <strong>عنوان مشروع آخر</strong>
-                        </h6>
-                        <p class="mbr-text mbr-fonts-style display-7">
-                            <!-- <a href="mailto:info@site.com" class="text-primary">info@site.com</a> -->
-                            وصف للمشروع لا يزيد عن سطرين
-                        </p>
-                    </div>
-                </div>
-            </div>
+                ");
+            }
+            ?>
         </div>
     </div>
 </section>
