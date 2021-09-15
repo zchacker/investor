@@ -18,7 +18,7 @@ class Api extends ResourceController
 {
     use ResponseTrait;
 
-    // all users
+    // all projects
     public function index()
     {
         $model = new ProjectsModel();
@@ -35,6 +35,7 @@ class Api extends ResourceController
         return $this->respond($data);
     }
 
+    // user able to add project
     public function add_project()
     {
 
@@ -83,6 +84,7 @@ class Api extends ResourceController
         
     }
 
+    // user able to delete project
     public function delete_project()
     {
         
@@ -90,18 +92,28 @@ class Api extends ResourceController
         $user_id    = $_POST['user_id'];
         $project_id = $_POST['project_id'];
 
-        $deleted = $model->where(['user_id' => $user_id , 'id' => $project_id])->delete();
+        $deleted = $model->where(['user_id' => $user_id , 'id' => $project_id])->delete();        
 
-        var_dump($deleted);
-
-        return $this
-        ->respondCreated(
-            [
-                'message' => 'تم الحذف بنجاح',                
-                'status'  => 200,
-                'error'   => '',
-            ]
-        );
+        if($deleted){
+            return $this
+            ->respondCreated(
+                [
+                    'message' => 'تم الحذف بنجاح',                
+                    'status'  => 200,
+                    'error'   => '',
+                ]
+            );
+        }else{
+            return $this
+            ->respondCreated(
+                [
+                    'message' => 'حدث خطأ ما',                
+                    'status'  => 500,
+                    'error'   => '',
+                ]
+            );
+        }
+        
 
     }
 

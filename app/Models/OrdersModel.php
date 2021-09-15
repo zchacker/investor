@@ -15,7 +15,7 @@ class OrdersModel extends Model
     protected $returnType     = 'array';
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['id', 'project_id', 'name', 'phone', 'email', 'best_time'];
+    protected $allowedFields = ['id', 'project_id', 'name', 'phone', 'email', 'best_time' , 'created_at'];
 
     protected $useTimestamps = false;
     protected $createdField  = 'created_at';

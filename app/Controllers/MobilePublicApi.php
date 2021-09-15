@@ -2,6 +2,8 @@
 namespace App\Controllers;
 
 use App\Models\UserModel;
+use App\Models\ProjectsModel;
+use App\Models\OrdersModel;
 
 use CodeIgniter\HTTP\Response;
 use CodeIgniter\HTTP\ResponseInterface;
@@ -13,7 +15,7 @@ use ReflectionException;
 // this is blog tut
 // https://www.twilio.com/blog/create-secured-restful-api-codeigniter-php
 
-class MobileAuth extends BaseController
+class MobilePublicApi extends BaseController
 {
 
     /**
@@ -131,6 +133,75 @@ class MobileAuth extends BaseController
                 ]
             );
         }
+
+    }
+
+    /**
+     * Check if ios app need update
+     * @return Response
+     */
+    public function ios_version()
+    {
+        $server_response = array(
+			'update' => TRUE,
+			'build' => 1
+		);
+
+        return $this ->getResponse($server_response);
+    }   
+    
+    /**
+     * Check if android app need update
+     * @return Response
+     */
+    public function android_version()
+    {
+        $server_response = array(
+			'update' => TRUE,
+			'build' => 1
+		);
+
+        return $this ->getResponse($server_response);
+    }
+
+    /**
+     * Get all projects for investors
+     * @return Response
+     */
+    public function get_all_projects()
+    {
+        $model = new ProjectsModel();
+        $data['projects'] = $model->orderBy('id', 'DESC')->findAll();
+        return $this->getResponse($data);
+    }
+
+    /**
+     * Register a new user
+     * @return Response
+     * @throws ReflectionException
+     */
+    public function invest_in_project()
+    {
+        
+        $model = new OrdersModel();
+
+        $data = [
+            'project_id'    => $this->request->getVar('project_id'),
+            'name'          => $this->request->getVar('name'),
+            'phone'         => $this->request->getVar('phone'),
+            'email'         => $this->request->getVar('email'),
+            'best_time'     => $this->request->getVar('best_time'),
+        ];                
+            
+        $model->insert($data);
+
+        $response = [
+            'status'   => 201,
+            'error'    => '',
+            'messages' => 'ًتم ارسال الطلب بنجاح'                
+        ];
+        
+        return $this->getResponse($response);
 
     }
 
