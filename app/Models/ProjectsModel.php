@@ -15,10 +15,10 @@ class ProjectsModel extends Model
     protected $returnType     = 'array';
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['id', 'title', 'domain', 'capital', 'share', 'description', 'call_time', 'approved', 'deleted', 'added_time'];
+    protected $allowedFields = ['id', 'title', 'domain', 'capital', 'share', 'description', 'call_time', 'approved', 'deleted' , 'user_id' , 'added_time'];
 
     protected $useTimestamps = false;
-    protected $createdField  = 'created_at';
+    protected $createdField  = 'added_time';// 'created_at';
     protected $updatedField  = 'updated_at';
     protected $deletedField  = 'deleted_at';
 

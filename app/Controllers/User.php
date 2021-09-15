@@ -59,7 +59,7 @@ class User extends BaseController
                 'user_id' => session()->user_id          
             );
 
-            if($this->userModel->add_new_project($project_data))
+            if($this->userModel->insert($project_data))
             {
                 $message = 'تم إرسال مشروعك بنجاح, وحاليا قيد المراجعة والموافقة';
             }
@@ -81,7 +81,7 @@ class User extends BaseController
 
     public function delete_project()
     {
-
+        
     }
     
     public function profile()
