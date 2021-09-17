@@ -2,6 +2,10 @@
 
 namespace App\Controllers;
 
+use App\Models\UserModel;
+use App\Models\ProjectsModel;
+
+
 class User extends BaseController
 {
     protected $userModel;
@@ -57,9 +61,11 @@ class User extends BaseController
                 'description' => $_POST['description'],
                 'call_time' => $_POST['call_time'],      
                 'user_id' => session()->user_id          
-            );
+            );            
 
-            if($this->userModel->insert($project_data))
+            $model = new ProjectsModel();
+
+            if($model->save($project_data))
             {
                 $message = 'تم إرسال مشروعك بنجاح, وحاليا قيد المراجعة والموافقة';
             }

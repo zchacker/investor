@@ -51,7 +51,8 @@ class UserModel extends Model
             ->first();
 
         if (!$user) 
-            throw new Exception('User does not exist for specified email address');
+            return NULL;
+            //throw new Exception('User does not exist for specified email address');
 
         return $user;
     }

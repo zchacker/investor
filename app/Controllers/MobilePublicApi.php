@@ -116,23 +116,39 @@ class MobilePublicApi extends BaseController
 
         $model = new UserModel();
         $user = $model->findUserByEmailAddress($input['email']);
-        $auth = password_verify($input['password'] , $user['password']);
-        
 
-        if($auth){
-            return $this->getJWTForUser($input['email']);
+        if($user != NULL){
+
+            $auth = password_verify($input['password'] , $user['password']);
+        
+            if($auth){
+                return $this->getJWTForUser($input['email']);
+            }else{
+                return $this
+                ->getResponse(
+                    [
+                        'message' => 'اسم المسخدم أو كلمة المرور خطأ, الرجاء المحاولة مرة أخرى',
+                        'user' => NULL,
+                        'status'   => 500,
+                        'error'    => '',
+                        'access_token' => ''
+                    ]
+                );
+            }
+
         }else{
-            return $this
-            ->getResponse(
-                [
-                    'message' => 'User not authenticated',
-                    'user' => NULL,
-                    'status'   => 500,
-                    'error'    => '',
-                    'access_token' => ''
-                ]
-            );
+                return $this
+                ->getResponse(
+                    [
+                        'message' => 'رقم الهاتف أو البريد غير مسجل لدينا, حاول مرة أخرى',
+                        'user' => NULL,
+                        'status'   => 500,
+                        'error'    => '',
+                        'access_token' => ''
+                    ]
+                );
         }
+        
 
     }
 
