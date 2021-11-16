@@ -72,7 +72,7 @@ class Auth extends BaseController
 			
 			if( $query  != NULL )
 			{
-				$auth = password_verify($pass , $query[0]->pass);
+				$auth = password_verify($pass , $query[0]->password);
 				if($auth)
 				{
 					// set as loggedin and redirct to adding project

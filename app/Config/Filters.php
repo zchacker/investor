@@ -21,6 +21,7 @@ class Filters extends BaseConfig
 		'toolbar'  => DebugToolbar::class,
 		'honeypot' => Honeypot::class,
 		'auth' => \App\Filters\Auth::class,
+		'adminAuth' => \App\Filters\AdminAuth::class,
 		'api_auth' => JWTAuthenticationFilter::class
 	];
 
@@ -63,6 +64,7 @@ class Filters extends BaseConfig
 	 */
 	public $filters = [
 		'auth' => ['before' => ['user/*' , 'user']],
+		'adminAuth' => ['before' => ['dash/*' , 'dash']],		
 		'api_auth' => ['before' => ['api/*' , 'api']]
 	];
 }
