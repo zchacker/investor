@@ -82,51 +82,49 @@
 			<ul id="side-nav" class="main-menu navbar-collapse collapse">
 				<li class="has-sub <?php if($tab > 0 && $tab <= 1 ) print("active");?>"><a href="<?=base_url()?>/panel/"><i class="icon-gauge"></i><span class="title">الرئيسية</span></a>
 					<ul class="nav">
-						<li class="<?php if($tab == 1 ) print("active");?>"><a href="<?=base_url()?>/panel/"><span class="title">الاحصائيات</span></a></li>
-						<!-- <li><a href="ecommerce-dashboard.html"><span class="title">E-Commerce</span></a></li>
-						<li><a href="news-dashboard.html"><span class="title">News Portal</span></a></li> -->
+						<li class="<?php if($tab == 1 ) print("active");?>"><a href="<?=base_url()?>/dash/index"><span class="title">الاحصائيات</span></a></li>						
 					</ul>
 				</li>
-				<li class="has-sub <?php if($tab > 1 && $tab <= 7 ) print("active");?>"><a href="<?=base_url()?>/panel/edit_page/2"><i class="icon-layout"></i><span class="title">المشاريع</span></a>
+				<li class="has-sub <?php if($tab > 1 && $tab <= 5 ) print("active");?>"><a href="<?=base_url()?>/dash/projects/all"><i class="icon-layout"></i><span class="title">المشاريع</span></a>
 					<ul class="nav collapse">
-						<li class="<?php if($tab == 2 ) print("active");?>"><a href="<?=base_url()?>/panel/edit_page/1"><span class="title">مشاريع معروضة</span></a></li>
-						<li class="<?php if($tab == 3 ) print("active");?>"><a href="<?=base_url()?>/panel/edit_page/2"><span class="title">مشاريع تحت المراجعة</span></a></li>
-						<li class="<?php if($tab == 4 ) print("active");?>"><a href="<?=base_url()?>/panel/edit_page/3"><span class="title">مشاريع محذوفة</span></a></li>
-						<li class="<?php if($tab == 5 ) print("active");?>"><a href="<?=base_url()?>/panel/edit_page/4"><span class="title">مشاريع مكتملة</span></a></li>						
+						<li class="<?php if($tab == 2 ) print("active");?>"><a href="<?=base_url()?>/dash/projects/approved"><span class="title">مشاريع معروضة</span></a></li>
+						<li class="<?php if($tab == 3 ) print("active");?>"><a href="<?=base_url()?>/dash/projects/pending"><span class="title">مشاريع تحت المراجعة</span></a></li>
+						<li class="<?php if($tab == 4 ) print("active");?>"><a href="<?=base_url()?>/dash/projects/deleted"><span class="title">مشاريع محذوفة</span></a></li>
+						<li class="<?php if($tab == 5 ) print("active");?>"><a href="<?=base_url()?>/dash/projects/archived"><span class="title">مشاريع مكتملة</span></a></li>						
 					</ul>
 				</li>
-				<li class="has-sub <?php if($tab > 7 && $tab <= 9 ) print("active");?>"><a href="<?=base_url()?>/panel/list_dirctions/gov"><i class="icon-newspaper"></i><span class="title">طلبات الاستثمار</span></a>
+				<li class="has-sub <?php if($tab > 7 && $tab <= 9 ) print("active");?>"><a href="<?=base_url()?>/dash/list_dirctions/gov"><i class="icon-newspaper"></i><span class="title">طلبات الاستثمار</span></a>
 					<ul class="nav collapse">
-						<li class="<?php if($tab == 8 ) print("active");?>"><a href="<?=base_url()?>/panel/list_dirctions/gov"><span class="title">طلبات تحت المراجعة</span></a></li>
-						<li class="<?php if($tab == 9 ) print("active");?>"><a href="<?=base_url()?>/panel/list_dirctions/com"><span class="title">طلبات مكتملة</span></a></li>
+						<li class="<?php if($tab == 8 ) print("active");?>"><a href="<?=base_url()?>/dash/list_dirctions/gov"><span class="title">طلبات تحت المراجعة</span></a></li>
+						<li class="<?php if($tab == 9 ) print("active");?>"><a href="<?=base_url()?>/dash/list_dirctions/com"><span class="title">طلبات مكتملة</span></a></li>
 					</ul>
 				</li>
-				<li class="has-sub <?php if($tab > 9 && $tab <= 12 ) print("active");?>"><a href="<?=base_url()?>/panel/"><i class="icon-window"></i><span class="title">العضويات</span></a>
+				<li class="has-sub <?php if($tab > 9 && $tab <= 12 ) print("active");?>"><a href="<?=base_url()?>/dash/"><i class="icon-window"></i><span class="title">العضويات</span></a>
 					<ul class="nav collapse">
-						<li class="<?php if($tab == 10 ) print("active");?>"><a href="<?=base_url()?>/panel/documents/pending"><span class="title">معلقة</span></a></li>
-						<li class="<?php if($tab == 11 ) print("active");?>"><a href="<?=base_url()?>/panel/documents/sent"><span class="title">مؤكدة</span></a></li>
-						<li class="<?php if($tab == 12 ) print("active");?>"><a href="<?=base_url()?>/panel/documents/canceled"><span class="title">ملغية</span></a></li>
+						<li class="<?php if($tab == 10 ) print("active");?>"><a href="<?=base_url()?>/dash/documents/pending"><span class="title">معلقة</span></a></li>
+						<li class="<?php if($tab == 11 ) print("active");?>"><a href="<?=base_url()?>/dash/documents/sent"><span class="title">مؤكدة</span></a></li>
+						<li class="<?php if($tab == 12 ) print("active");?>"><a href="<?=base_url()?>/dash/documents/canceled"><span class="title">ملغية</span></a></li>
 					</ul>
 				</li>
-				<li class="has-sub <?php if($tab > 12 && $tab <= 14 ) print("active");?>"><a href="<?=base_url()?>/panel/"><i class="icon-doc-text"></i><span class="title">حسابات</span></a>
+				<li class="has-sub <?php if($tab > 12 && $tab <= 14 ) print("active");?>"><a href="<?=base_url()?>/dash/"><i class="icon-doc-text"></i><span class="title">حسابات</span></a>
 					<ul class="nav collapse">
-						<li class="<?php if($tab == 13 ) print("active");?>"><a href="<?=base_url()?>/panel/"><span class="title">الكوبونات النشطة</span></a></li>
-						<li class="<?php if($tab == 14 ) print("active");?>"><a href="<?=base_url()?>/panel/"><span class="title">الكوبونات المنتهية</span></a></li>
+						<li class="<?php if($tab == 13 ) print("active");?>"><a href="<?=base_url()?>/dash/"><span class="title">الكوبونات النشطة</span></a></li>
+						<li class="<?php if($tab == 14 ) print("active");?>"><a href="<?=base_url()?>/dash/"><span class="title">الكوبونات المنتهية</span></a></li>
 					</ul>
 				</li>
-				<li class="has-sub <?php if($tab > 14 && $tab <= 17 ) print("active");?>"><a href="<?=base_url()?>/panel/"><i class="icon-chart-bar"></i><span class="title">إعدادات</span></a>
+				<li class="has-sub <?php if($tab > 14 && $tab <= 17 ) print("active");?>"><a href="<?=base_url()?>/dash/"><i class="icon-chart-bar"></i><span class="title">إعدادات</span></a>
 					<ul class="nav collapse">
-						<li class="<?php if($tab == 15 ) print("active");?>"><a href="<?=base_url()?>/panel/"><span class="title">عرض المستخدمين</span></a></li>
-						<li class="<?php if($tab == 16 ) print("active");?>"><a href="<?=base_url()?>/panel/"><span class="title">إضافة جديد</span></a></li>
-						<li class="<?php if($tab == 17 ) print("active");?>"><a href="<?=base_url()?>/panel/"><span class="title">ملفك الشخصي</span></a></li>
+						<li class="<?php if($tab == 15 ) print("active");?>"><a href="<?=base_url()?>/dash/"><span class="title">عرض المستخدمين</span></a></li>
+						<li class="<?php if($tab == 16 ) print("active");?>"><a href="<?=base_url()?>/dash/"><span class="title">إضافة جديد</span></a></li>
+						<li class="<?php if($tab == 17 ) print("active");?>"><a href="<?=base_url()?>/dash/"><span class="title">ملفك الشخصي</span></a></li>
 					</ul>
 				</li>					
-				<li class="has-sub <?php if($tab > 18 && $tab <= 20 ) print("active");?>"><a href="<?=base_url()?>/panel/site_sesttings"><i class="icon-chart-bar"></i><span class="title">إعدادات الموقع</span></a>
+				<li class="has-sub <?php if($tab > 18 && $tab <= 20 ) print("active");?>"><a href="<?=base_url()?>/dash/site_sesttings"><i class="icon-chart-bar"></i><span class="title">إعدادات الموقع</span></a>
 					<ul class="nav collapse">
-						<li class="<?php if($tab == 19 ) print("active");?>"><a href="<?=base_url()?>/panel/site_sesttings"><span class="title">الشروط والاحكام</span></a></li>
-						<li class="<?php if($tab == 20 ) print("active");?>"><a href="<?=base_url()?>/panel/provinces"><span class="title">من نحن</span></a></li>
-						<li class="<?php if($tab == 21 ) print("active");?>"><a href="<?=base_url()?>/panel/transactions"><span class="title">أرقام التواصل</span></a></li>
-						<li class="<?php if($tab == 21 ) print("active");?>"><a href="<?=base_url()?>/panel/transactions"><span class="title">سياسة الخصوصية</span></a></li>
+						<li class="<?php if($tab == 19 ) print("active");?>"><a href="<?=base_url()?>/dash/site_sesttings"><span class="title">الشروط والاحكام</span></a></li>
+						<li class="<?php if($tab == 20 ) print("active");?>"><a href="<?=base_url()?>/dash/provinces"><span class="title">من نحن</span></a></li>
+						<li class="<?php if($tab == 21 ) print("active");?>"><a href="<?=base_url()?>/dash/transactions"><span class="title">أرقام التواصل</span></a></li>
+						<li class="<?php if($tab == 21 ) print("active");?>"><a href="<?=base_url()?>/dash/transactions"><span class="title">سياسة الخصوصية</span></a></li>
 					</ul>
 				</li>					
 			</ul>

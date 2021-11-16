@@ -18,31 +18,26 @@
                     <thead> 
                         <tr> 
                             <th>#</th>                             
-                            <th>رقم المرسل</th>
-                            <th>الحالة</th>
+                            <th>اسم المشروع</th>
+                            <th>رأس المال</th>
+                            <th>نسبة المشاركة</th>
                             <th>التاريخ</th>
                             <th>الحدث</th>
                         </tr> 
                     </thead> 
                     <tbody> 
                         <?php 
-                            foreach($docuemnts as $docuemnt)
+                            foreach($projects as $project)
                             {
-                                $show  = "<a href='".base_url()."/panel/document/$docuemnt[id]' class='btn btn-primary btn-rounded'>عرض المزيد</a>";                                
-                                $status = '<span class="badge badge-primary">معلقة</span>';
-                                
-                                if($docuemnt['sent_status'] == 'sent'){
-                                    $status = '<span class="badge badge-success">مؤكدة</span>';
-                                }else if($docuemnt['sent_status'] == 'canceled'){
-                                    $status = '<span class="badge badge-danger">ملغية</span>';
-                                }
+                                $show  = "<a href='".base_url()."/dash/project/$project[id]' class='btn btn-primary btn-rounded'>التفاصيل</a>";                               
 
                                 print("
                                     <tr>
-                                        <th>$docuemnt[id]</th>                                        
-                                        <td>$docuemnt[sender_phone]</td>
-                                        <td>$status</td>
-                                        <td>$docuemnt[date]</td>
+                                        <th>$project[id]</th>                                        
+                                        <td>$project[title]</td>
+                                        <td>$project[capital]</td>
+                                        <td>$project[share]</td>
+                                        <td>$project[added_time]</td>
                                         <td>$show</td>
                                     </tr>
                                 ");
