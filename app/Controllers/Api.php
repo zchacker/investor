@@ -46,6 +46,7 @@ class Api extends ResourceController
         {
             $project_data = array(
                 'title' => $_POST['title'],
+                'relation' => $_POST['relation'],
                 'domain' => $_POST['domain'],
                 'capital' => $_POST['capital'],
                 'share' => $_POST['share'],
